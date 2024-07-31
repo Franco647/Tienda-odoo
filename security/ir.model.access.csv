@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tienda_categoria,tienda_categoria,model_tienda_categoria,base.group_user,1,1,1,1
+access_tienda_producto,tienda_producto,model_tienda_producto,base.group_user,1,1,1,1
+access_tienda_pedido,tienda_pedido,model_tienda_pedido,base.group_user,1,1,1,1
+access_tienda_cliente,tienda_cliente,model_tienda_cliente,base.group_user,1,1,1,1
+access_tienda_pedido_calendar,tienda.pedido.calendar,model_tienda_pedido,base.group_user,1,1,1,1

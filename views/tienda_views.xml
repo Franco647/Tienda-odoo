@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+      <!-- Vistas -->
+      <record id="tienda_producto_listado" model="ir.ui.view">
+         <field name="name">Listado de Productos</field>
+         <field name="model">tienda.producto</field>
+         <field name="arch" type="xml">
+            <tree string="Productos">
+               <field name="nombre"/>
+               <field name="stock"/>
+               <field name="categoria"/>
+               <field name="foto" widget="image"/>
+               <field name="precio"/>
+            </tree>
+         </field>
+      </record>
+
+
+      <record id="tienda_categoria_listado" model="ir.ui.view">
+         <field name="name">Listado de Categorias</field>
+         <field name="model">tienda.categoria</field>
+         <field name="arch" type="xml">
+            <tree string="Categorias">
+               <field name="nombre"/>
+            </tree>
+         </field>
+      </record>
+
+
+      <record id="tienda_pedido_listado" model="ir.ui.view">
+         <field name="name">Listado de Pedidos</field>
+         <field name="model">tienda.pedido</field>
+         <field name="arch" type="xml">
+            <tree string="Pedidos">
+               <field name="numero"/>
+               <field name="estado"/>
+               <field name="total"/>
+            </tree>
+         </field>
+      </record>
+      <record id="tienda_pedido_calendar_view" model="ir.ui.view">
+         <field name="name">Calendario de Pedidos</field>
+         <field name="model">tienda.pedido</field>
+         <field name="arch" type="xml">
+             <calendar string="Calendario de Pedidos" date_start="fecha" date_stop="fecha" mode="month">
+                 <field name="numero"/>
+                 <field name="estado"/>
+                 <field name="total"/>
+             </calendar>
+         </field>
+     </record>     
+
+
+      <record id="tienda_cliente_form" model="ir.ui.view">
+         <field name="name">Listado de Cliente</field>
+         <field name="model">tienda.cliente</field>
+         <field name="arch" type="xml">
+             <form string="Cliente">
+                 <sheet>
+                     <group>
+                         <field name="nombre"/>
+                         <field name="direccion"/>
+                         <field name="email"/>
+                         <field name="foto" widget="image"/>
+                     </group>
+                 </sheet>
+             </form>
+         </field>
+     </record>
+     <record id="tienda_cliente_tree" model="ir.ui.view">
+      <field name="name">Árbol de Cliente</field>
+      <field name="model">tienda.cliente</field>
+      <field name="arch" type="xml">
+         <tree string="Clientes">
+            <field name="nombre"/>
+            <field name="direccion"/>
+            <field name="email"/>
+            <field name="foto" widget="image"/>
+         </tree>
+      </field>
+  </record>
+
+
+      <!-- Actions -->
+      <record id="tienda_producto_action" model="ir.actions.act_window">
+         <field name="name">Producto</field>
+         <field name="res_model">tienda.producto</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="tienda_categoria_action" model="ir.actions.act_window">
+         <field name="name">Categorias</field>
+         <field name="res_model">tienda.categoria</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="view_mode">tree,form</field>
+      </record>
+
+      <record id="tienda_pedido_action" model="ir.actions.act_window">
+         <field name="name">Pedidos</field>
+         <field name="res_model">tienda.pedido</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="view_mode">tree,form</field>
+      </record>
+      <record id="tienda_pedido_kanban_action" model="ir.actions.act_window">
+         <field name="name">Kanban de Pedidos</field>
+         <field name="res_model">tienda.pedido</field>
+         <field name="view_mode">kanban,form</field>
+     </record>     
+
+      <record id="tienda_cliente_action" model="ir.actions.act_window">
+         <field name="name">Clientes</field>
+         <field name="res_model">tienda.cliente</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="view_mode">tree,form</field>
+      </record>
+
+
+      <!-- Menú del módulo -->
+      <menuitem id="tienda_menu" name="Tienda"/>
+      <menuitem id="tienda_producto_menu" name="Productos" parent="tienda_menu" action="tienda_producto_action" sequence="1" />
+      <menuitem id="tienda_categoria_menu" name="Categorias" parent="tienda_menu" action="tienda_categoria_action" sequence="2" />
+      <menuitem id="tienda_pedido_menu" name="Pedidos" parent="tienda_menu" action="tienda_pedido_action" sequence="3" />
+      <menuitem id="tienda_cliente_menu" name="Clientes" parent="tienda_menu" action="tienda_cliente_action" sequence="4" />
+      <menuitem id="tienda_pedido_kanban_menu" name="Kanban de Pedidos" parent="tienda_menu" action="tienda_pedido_kanban_action" sequence="5"/>
+
+   </data>
+</odoo>
